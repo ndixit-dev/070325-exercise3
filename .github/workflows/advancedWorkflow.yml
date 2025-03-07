@@ -1,6 +1,7 @@
 name: advanced workflow
 
-#env:
+env:
+  WORFLOW_VAR: "workflow"
 
 
 on:
@@ -27,10 +28,19 @@ jobs:
 
   secondjob:
     runs-on: ubuntu-latest
+    env:
+      JOB_VAR: "Job"
     steps:
      - name: secondJob script
        shell: bash
        run: |
           echo this is the second job
           echo and this is a multi-line script 
-      #- name:
+      - name: environment variables
+        env:
+          STEP_VAR: ""
+        run: |
+          echo $WORKFLOW_VAR
+          echo $JOB_VAR
+          echo $STEP_VAR
+          echo " secret {{ secrets.SOME_SECRET }}"
