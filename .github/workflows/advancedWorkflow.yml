@@ -42,7 +42,7 @@ jobs:
        run: |
           echo $WORKFLOW_VAR
           echo $STEP_VAR
-          echo " secret {{ secrets.SOME_SECRET }}"
+          echo " secret ${{ secrets.SOME_SECRET }}"
           echo $GITHUB_ACTOR
           echo $GITHUB_JOB
           echo $GITHUB_REF
